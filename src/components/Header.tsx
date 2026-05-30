@@ -9,11 +9,11 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-paper/90 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6">
+    <header className="sticky top-0 z-50 border-b border-border bg-[var(--glass)] backdrop-blur-2xl backdrop-saturate-150">
+      <div className="mx-auto flex h-12 max-w-6xl items-center justify-between px-4 sm:h-14 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="font-serif text-base font-semibold tracking-tight text-ink sm:text-lg"
+          className="text-sm font-semibold tracking-tight text-fg sm:text-[15px]"
         >
           {siteConfig.name}
         </Link>
@@ -23,10 +23,10 @@ export function Header() {
 
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-ink sm:hidden"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full text-fg-secondary sm:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
-            aria-label="メニューを開く"
+            aria-label="メニュー"
             onClick={() => setMenuOpen((o) => !o)}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -48,18 +48,18 @@ export function Header() {
             </svg>
           </button>
 
-          <nav className="hidden items-center gap-5 text-sm font-medium text-muted sm:flex">
-            <Link href="#projects" className="transition hover:text-accent">
+          <nav className="hidden items-center gap-8 text-[13px] text-fg-secondary sm:flex">
+            <Link href="#projects" className="transition hover:text-fg">
               実績
             </Link>
-            <Link href="#contact" className="transition hover:text-accent">
+            <Link href="#contact" className="transition hover:text-fg">
               連絡先
             </Link>
             <a
               href={siteConfig.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-ink bg-ink px-4 py-2 text-paper transition hover:bg-accent hover:border-accent"
+              className="rounded-full bg-accent px-3.5 py-1.5 text-[13px] font-medium text-white transition hover:bg-accent-hover"
             >
               GitHub
             </a>
@@ -70,13 +70,13 @@ export function Header() {
       {menuOpen && (
         <nav
           id="mobile-nav"
-          className="border-t border-border bg-surface px-4 py-4 sm:hidden"
+          className="border-t border-border bg-bg-elevated px-4 py-4 sm:hidden"
         >
-          <ul className="flex flex-col gap-3 text-sm font-medium text-muted">
+          <ul className="flex flex-col gap-1 text-[15px]">
             <li>
               <Link
                 href="#projects"
-                className="block py-1 transition hover:text-accent"
+                className="block rounded-xl px-3 py-2.5 text-fg-secondary hover:bg-bg hover:text-fg"
                 onClick={() => setMenuOpen(false)}
               >
                 実績
@@ -85,18 +85,18 @@ export function Header() {
             <li>
               <Link
                 href="#contact"
-                className="block py-1 transition hover:text-accent"
+                className="block rounded-xl px-3 py-2.5 text-fg-secondary hover:bg-bg hover:text-fg"
                 onClick={() => setMenuOpen(false)}
               >
                 連絡先
               </Link>
             </li>
-            <li>
+            <li className="pt-2">
               <a
                 href={siteConfig.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex rounded-full border border-ink bg-ink px-4 py-2 text-paper"
+                className="block rounded-full bg-accent px-4 py-2.5 text-center font-medium text-white"
                 onClick={() => setMenuOpen(false)}
               >
                 GitHub
