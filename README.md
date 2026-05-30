@@ -4,9 +4,9 @@
 
 ## 掲載プロジェクト
 
-- [勤怠管理アプリ](https://attendance-app-two-ruby.vercel.app/login)
+- [Chat App](https://chat-app-xi-ashen-92.vercel.app/login)（メイン）
+- [勤怠管理アプリ](https://attendance-app-two-ruby.vercel.app/login)（サブ）
 - [OAuth 2.0 / OIDC 認可サーバー](https://oauth-server-ver-2.vercel.app/dev/oauth-client)
-- [Chat App](https://chat-app-xi-ashen-92.vercel.app/login)
 
 ## 開発
 

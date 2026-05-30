@@ -6,9 +6,26 @@ export type Project = {
   tech: string[];
   demoUrl: string;
   githubUrl: string;
+  /** メイン実績（大きく1枚表示） */
+  featured?: boolean;
 };
 
 export const projects: Project[] = [
+  {
+    id: "chat-app",
+    featured: true,
+    title: "Chat App",
+    description:
+      "リアルタイムチャットを想定した Web アプリケーション。認証・メッセージ送受信など、フルスタックで実装・デプロイしています。",
+    highlights: [
+      "本番環境での動作確認済み",
+      "Vercel へのデプロイ",
+      "GitHub によるバージョン管理",
+    ],
+    tech: ["Go", "React", "TypeScript", "Vercel"],
+    demoUrl: "https://chat-app-xi-ashen-92.vercel.app/login",
+    githubUrl: "https://github.com/shomaro22/Chat_App",
+  },
   {
     id: "attendance-app",
     title: "勤怠管理アプリ",
@@ -45,21 +62,12 @@ export const projects: Project[] = [
     demoUrl: "https://oauth-server-ver-2.vercel.app/dev/oauth-client",
     githubUrl: "https://github.com/shomaro22/OAuth-Server-Ver.2",
   },
-  {
-    id: "chat-app",
-    title: "Chat App",
-    description:
-      "リアルタイムチャットを想定した Web アプリケーション。認証・メッセージ送受信など、フルスタックで実装・デプロイしています。",
-    highlights: [
-      "本番環境での動作確認済み",
-      "Vercel へのデプロイ",
-      "GitHub によるバージョン管理",
-    ],
-    tech: ["Go", "React", "TypeScript", "Vercel"],
-    demoUrl: "https://chat-app-xi-ashen-92.vercel.app/login",
-    githubUrl: "https://github.com/shomaro22/Chat_App",
-  },
 ];
+
+export const featuredProject =
+  projects.find((p) => p.featured) ?? projects[0];
+
+export const subProjects = projects.filter((p) => !p.featured);
 
 export const siteConfig = {
   name: "ポートフォリオサイト",

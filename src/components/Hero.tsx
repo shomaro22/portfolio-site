@@ -1,4 +1,4 @@
-import { siteConfig } from "@/data/projects";
+import { featuredProject, siteConfig } from "@/data/projects";
 
 export function Hero() {
   return (
@@ -18,6 +18,14 @@ export function Hero() {
           以下の実績はすべて本番 URL で動作確認できます。
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
+          <a
+            href={featuredProject.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg bg-indigo-600 px-6 py-3 text-sm font-medium text-white transition hover:bg-indigo-700"
+          >
+            {featuredProject.title} のデモ
+          </a>
           <a
             href="#projects"
             className="rounded-lg bg-slate-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-700"
