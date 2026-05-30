@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Serif_JP, Zen_Kaku_Gothic_New } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { siteConfig } from "@/data/projects";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const notoSerif = Noto_Serif_JP({
+  variable: "--font-noto-serif",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const zenSans = Zen_Kaku_Gothic_New({
+  variable: "--font-zen",
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -31,10 +34,13 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${notoSerif.variable} ${zenSans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-white text-slate-900">
-        {children}
+      <body className="relative min-h-full flex flex-col font-sans text-ink">
+        <ThemeProvider>
+          <div className="relative z-10 flex min-h-full flex-col">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );
